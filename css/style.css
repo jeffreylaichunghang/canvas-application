@@ -15,3 +15,11 @@
   height: 570px;
   position: relative;
 }
+
+.color {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-block;
+}

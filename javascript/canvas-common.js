@@ -9,6 +9,7 @@ let canvasDraft = document.getElementById("canvas-draft");
 let contextDraft = canvasDraft.getContext("2d");
 let currentFunction;
 let dragging = false;
+let currentColor;
 
 $("#canvas-draft").mousedown(function (e) {
   let mouseX = e.offsetX;
@@ -49,11 +50,15 @@ $("#canvas-draft").mouseenter(function (e) {
 /** # Class (all classes will have these methods) #
 /*  ====================== */
 class PaintFunction {
-  constructor() {}
-  onMouseDown() {}
-  onDragging() {}
-  onMouseMove() {}
-  onMouseUp() {}
-  onMouseLeave() {}
-  onMouseEnter() {}
+  constructor() {
+    //this.getColor = function () {
+    //  return currentColor
+    //}
+  }
+  onMouseDown() { }
+  onDragging() { }
+  onMouseMove() { }
+  onMouseUp() { }
+  onMouseLeave() { }
+  onMouseEnter() { }
 }

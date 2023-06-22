@@ -11,6 +11,8 @@ class DrawingCurvedLine extends PaintFunction {
       this.origX = coord[0]
       this.origY = coord[1]
     }
+    this.contextDraft.strokeStyle = currentColor
+    this.contextReal.strokeStyle = currentColor
   }
   onDragging(coord, event) {
     this.contextDraft.clearRect(
