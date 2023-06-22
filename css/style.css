@@ -1,0 +1,17 @@
+.canvas {
+  border: 1px black dotted;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+#canvas-draft {
+  background-color: transparent;
+}
+
+#canvas-container {
+  height: 570px;
+  position: relative;
+}
