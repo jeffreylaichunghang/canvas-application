@@ -13,6 +13,10 @@ class DrawingCurvedLine extends PaintFunction {
     }
     this.contextDraft.strokeStyle = currentColor
     this.contextReal.strokeStyle = currentColor
+    this.contextDraft.lineWidth = currentPenSize;
+    this.contextReal.lineWidth = currentPenSize;
+    this.contextDraft.lineJoin = "round";
+    this.contextReal.lineJoin = "round";
   }
   onDragging(coord, event) {
     this.contextDraft.clearRect(
