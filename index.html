@@ -61,7 +61,9 @@
       $('#drawing-curvedLine').click(() => {
         currentFunction = new DrawingCurvedLine(contextReal, contextDraft)
       })
-
+      $('#eraser').click(() => {
+        currentFunction = new Eraser(contextReal)
+      })
     })
   </script>
 </body>
