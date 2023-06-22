@@ -27,6 +27,7 @@
     <span class="btn btn-info fa fa-paint-brush" id="drawing-curvedLine">Draw Curved Line</span>
     <!-- The triangle line button  -->
     <span class="btn btn-info fa fa-paint-brush" id="drawing-triangle">Draw Triangle</span>
+    <span class="btn btn-info fa fa-paint-brush" id="eraser">Eraser</span>
   </div>
 
   <!-- jQuery -->
@@ -34,6 +35,8 @@
     crossorigin="anonymous"></script>
   <!-- The drawing functionality  -->
   <script src="./javascript/canvas-common.js" type="text/javascript"></script>
+  <!-- The eraser functionality  -->
+  <script src="./javascript/eraser.js" type="text/javascript"></script>
   <!-- The drawing line functionality  -->
   <script src="./javascript/drawing-line.js" type="text/javascript"></script>
   <!-- The drawing curved line functionality  -->
@@ -58,6 +61,7 @@
       $('#drawing-curvedLine').click(() => {
         currentFunction = new DrawingCurvedLine(contextReal, contextDraft)
       })
+
     })
   </script>
 </body>
