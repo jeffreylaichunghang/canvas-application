@@ -8,8 +8,6 @@ class DrawingTriangle extends PaintFunction {
   onMouseDown(coord, event) {
     this.origX = coord[0];
     this.origY = coord[1];
-    //this.contextReal.beginPath();
-    //this.contextReal.moveTo(this.origX, this.origY)
     console.log(`coordinates: ${this.origX},${this.origY}`)
   }
   onDragging(coord, event) {
