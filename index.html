@@ -23,6 +23,8 @@
     <span class="btn btn-primary fa fa-square" id="drawing-rectangle">Draw Rectangle</span>
     <!-- The drawing line button  -->
     <span class="btn btn-info fa fa-paint-brush" id="drawing-line">Draw Line</span>
+    <!-- The drawing curved line button  -->
+    <span class="btn btn-info fa fa-paint-brush" id="drawing-curvedLine">Draw Curved Line</span>
     <!-- The triangle line button  -->
     <span class="btn btn-info fa fa-paint-brush" id="drawing-triangle">Draw Triangle</span>
   </div>
@@ -53,6 +55,9 @@
       $("#drawing-triangle").click(() => {
         currentFunction = new DrawingTriangle(contextReal, contextDraft);
       });
+      $('#drawing-curvedLine').click(() => {
+        currentFunction = new DrawingCurvedLine(contextReal, contextDraft)
+      })
     })
   </script>
 </body>
