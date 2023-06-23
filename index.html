@@ -25,9 +25,11 @@
     <span class="btn btn-info fa fa-paint-brush" id="drawing-line">Draw Line</span>
     <!-- The drawing curved line button  -->
     <span class="btn btn-info fa fa-paint-brush" id="drawing-curvedLine">Draw Curved Line</span>
-    <!-- The triangle line button  -->
+    <!-- The triangle line button -->
     <span class="btn btn-info fa fa-paint-brush" id="drawing-triangle">Draw Triangle</span>
+    <!-- The eraser button -->
     <span class="btn btn-info fa fa-paint-brush" id="eraser">Eraser</span>
+    <!-- The color board -->
     <div class="color-board">
       <span class="color" style="background: red;"></span>
       <span class="color" style="background: blue;"></span>
@@ -35,8 +37,14 @@
       <span class="color" style="background: yellow;"></span>
       <input oninput="currentColor = this.value" id="color-picker" type="color">
     </div>
+    <!-- The pen size range input -->
     <div>
       <input oninput="currentPenSize = this.value" id="pen-size" type="range" min="1" max="100">
+    </div>
+    <!-- The undo button  -->
+    <div>
+      <span class="btn btn-info fa fa-paint-brush" id="undo">Undo</span>
+      <span class="btn btn-info fa fa-paint-brush" id="redo">Redo</span>
     </div>
   </div>
 
@@ -77,6 +85,22 @@
       $('.color-board').click(element => {
         currentColor = element.target.style.background
       });
+      $('#undo').click(() => {
+        if (index <= 0) {
+          index -= 1
+          contextReal.fillStyle = "#ffffff"
+          contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height)
+          contextReal.fillRect(0, 0, canvasReal.width, canvasReal.height)
+        } else {
+          index -= 1
+          contextReal.putImageData(restoreArray[index], 0, 0)
+        }
+      })
+      $('#redo').click(() => {
+        index += 1
+        contextReal.putImageData(restoreArray[index], 0, 0)
+        //for curved line, user has to click twice
+      })
     })
   </script>
 </body>

@@ -15,8 +15,6 @@ class DrawingCurvedLine extends PaintFunction {
     this.contextReal.strokeStyle = currentColor
     this.contextDraft.lineWidth = currentPenSize;
     this.contextReal.lineWidth = currentPenSize;
-    this.contextDraft.lineJoin = "round";
-    this.contextReal.lineJoin = "round";
   }
   onDragging(coord, event) {
     this.contextDraft.clearRect(
@@ -27,6 +25,8 @@ class DrawingCurvedLine extends PaintFunction {
     );
     this.contextDraft.beginPath();
     this.contextDraft.moveTo(this.origX, this.origY);
+    this.contextReal.beginPath();
+    this.contextReal.moveTo(this.origX, this.origY);
     if (this.controlPoint === false) {
       this.contextDraft.lineTo(coord[0], coord[1])
       this.contextDraft.stroke()

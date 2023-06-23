@@ -11,6 +11,8 @@ let currentFunction;
 let dragging = false;
 let currentColor;
 let currentPenSize;
+let restoreArray = []; // save the history
+let index = -1;
 
 $("#canvas-draft").mousedown(function (e) {
   let mouseX = e.offsetX;
@@ -33,6 +35,8 @@ $("#canvas-draft").mouseup(function (e) {
   let mouseX = e.offsetX;
   let mouseY = e.offsetY;
   currentFunction.onMouseUp([mouseX, mouseY], e);
+  restoreArray.push(contextReal.getImageData(0, 0, canvasReal.width, canvasReal.height))
+  index += 1
 });
 
 $("#canvas-draft").mouseleave(function (e) {
@@ -51,11 +55,7 @@ $("#canvas-draft").mouseenter(function (e) {
 /** # Class (all classes will have these methods) #
 /*  ====================== */
 class PaintFunction {
-  constructor() {
-    //this.getColor = function () {
-    //  return currentColor
-    //}
-  }
+  constructor() { }
   onMouseDown() { }
   onDragging() { }
   onMouseMove() { }
