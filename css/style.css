@@ -1,3 +1,25 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  margin: 1rem;
+  font-weight: 900;
+}
+
+.container {
+  display: flex;
+  row-gap: 10px;
+  height: min-content;
+  max-width: 1080px;
+  height: max-content;
+}
+
 .canvas {
   border: 1px black dotted;
   position: absolute;
@@ -5,6 +27,8 @@
   bottom: 0px;
   left: 0px;
   right: 0px;
+  height: 100%;
+  width: 100%;
 }
 
 #canvas-draft {
@@ -12,8 +36,32 @@
 }
 
 #canvas-container {
-  height: 570px;
   position: relative;
+  width: 100%;
+}
+
+.buttons {
+  padding: 5px;
+  text-align: center;
+  margin: 10px;
+  width: 250px;
+}
+
+.buttons>* {
+  display: block;
+  outline: 1px solid;
+  margin-bottom: 5px;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.buttons>span:hover {
+  outline: 3px solid;
+}
+
+.color-board {
+  padding: 10px;
+  outline: none;
 }
 
 .color {
@@ -22,4 +70,23 @@
   border-radius: 50%;
   cursor: pointer;
   display: inline-block;
+}
+
+.color:hover {
+  border: 2px solid black;
+}
+
+#color-picker {
+  border: none;
+  width: 100%;
+  cursor: pointer;
+}
+
+#color-picker:hover {
+  border: 1px solid red;
+}
+
+.buttons>.pen-size {
+  margin-bottom: 15px;
+  outline: none;
 }
