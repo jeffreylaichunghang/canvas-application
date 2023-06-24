@@ -9,7 +9,7 @@ let canvasDraft = document.getElementById("canvas-draft");
 let contextDraft = canvasDraft.getContext("2d");
 let currentFunction;
 let dragging = false;
-let currentColor;
+let currentColor = "#000000";
 let currentPenSize;
 let restoreArray = []; // save the history
 let index = -1;
@@ -35,8 +35,11 @@ $("#canvas-draft").mouseup(function (e) {
   let mouseX = e.offsetX;
   let mouseY = e.offsetY;
   currentFunction.onMouseUp([mouseX, mouseY], e);
-  restoreArray.push(contextReal.getImageData(0, 0, canvasReal.width, canvasReal.height))
+
   index += 1
+  if (index < restoreArray.length) { restoreArray.length = index }
+  restoreArray.push(contextReal.getImageData(0, 0, canvasReal.width, canvasReal.height))
+  console.log(index)
 });
 
 $("#canvas-draft").mouseleave(function (e) {

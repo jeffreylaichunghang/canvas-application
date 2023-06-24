@@ -2,6 +2,7 @@ class Eraser extends PaintFunction {
   constructor(contextReal) {
     super()
     this.context = contextReal
+    this.color = currentColor
   }
 
   onMouseDown(coord, event) {
@@ -17,7 +18,9 @@ class Eraser extends PaintFunction {
     this.context.stroke();
   }
   onMouseMove() { }
-  onMouseUp() { }
+  onMouseUp() {
+    this.context.strokeStyle = this.color;
+  }
   onMouseLeave() { }
   onMouseEnter() { }
 }

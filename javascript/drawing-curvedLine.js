@@ -60,6 +60,9 @@ class DrawingCurvedLine extends PaintFunction {
       this.contextReal.quadraticCurveTo(this.cp1, this.cp2, this.ep1, this.ep2)
       this.contextReal.stroke()
       this.controlPoint = false
+
+      index -= 1 // so this drawing curved line function only increment the index by one only
+      restoreArray.pop()
     }
   }
   onMouseLeave() { }

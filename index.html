@@ -94,7 +94,7 @@
       });
       $('#undo').click(() => {
         if (index <= 0) {
-          index -= 1
+          index = -1 //should be index = -1 to stop it being decremented
           contextReal.fillStyle = "#ffffff"
           contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height)
           contextReal.fillRect(0, 0, canvasReal.width, canvasReal.height)
@@ -102,11 +102,13 @@
           index -= 1
           contextReal.putImageData(restoreArray[index], 0, 0)
         }
+        console.log(index)
       })
       $('#redo').click(() => {
-        index += 1
-        contextReal.putImageData(restoreArray[index], 0, 0)
-        //for curved line, user has to click twice
+        if (index < restoreArray.length - 1) {
+          index += 1
+          contextReal.putImageData(restoreArray[index], 0, 0)
+        }
       })
     })
   </script>
