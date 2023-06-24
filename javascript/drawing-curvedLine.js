@@ -4,6 +4,7 @@ class DrawingCurvedLine extends PaintFunction {
     this.contextReal = contextReal
     this.contextDraft = contextDraft
     this.controlPoint = false
+    this.dragging = false
   }
 
   onMouseDown(coord, event) {
@@ -15,6 +16,7 @@ class DrawingCurvedLine extends PaintFunction {
     this.contextReal.strokeStyle = currentColor
     this.contextDraft.lineWidth = currentPenSize;
     this.contextReal.lineWidth = currentPenSize;
+    console.log('mousedown')
   }
   onDragging(coord, event) {
     this.contextDraft.clearRect(
@@ -28,6 +30,8 @@ class DrawingCurvedLine extends PaintFunction {
     this.contextReal.beginPath();
     this.contextReal.moveTo(this.origX, this.origY);
     if (this.controlPoint === false) {
+      console.log('dragging')
+      this.dragging = true
       this.contextDraft.lineTo(coord[0], coord[1])
       this.contextDraft.stroke()
       // works
@@ -43,11 +47,14 @@ class DrawingCurvedLine extends PaintFunction {
     // confirm the last coordinates
     if (this.controlPoint === false) {
       //confirm the control points and end points
-      this.controlPoint = true
+      if (this.dragging == true) {
+        this.controlPoint = true
+      }
       this.ep1 = coord[0]
       this.ep2 = coord[1]
       this.cp1 = Math.abs((coord[0] - this.origX) / 2)
       this.cp2 = Math.abs((coord[1] - this.origY) / 2)
+      console.log('mouseup')
     } else {
       this.contextDraft.clearRect(
         0,
@@ -60,6 +67,7 @@ class DrawingCurvedLine extends PaintFunction {
       this.contextReal.quadraticCurveTo(this.cp1, this.cp2, this.ep1, this.ep2)
       this.contextReal.stroke()
       this.controlPoint = false
+      this.dragging = false
 
       index -= 1 // so this drawing curved line function only increment the index by one only
       restoreArray.pop()
