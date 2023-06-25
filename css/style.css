@@ -49,14 +49,17 @@ h1 {
 
 .buttons>* {
   display: block;
-  outline: 1px solid;
   margin-bottom: 5px;
   border-radius: 1rem;
   cursor: pointer;
 }
 
 .buttons>span:hover {
-  outline: 3px solid;
+  font-weight: 500;
+}
+
+.default {
+  border: 3px solid black
 }
 
 .color-board {
@@ -83,7 +86,7 @@ h1 {
 }
 
 #color-picker:hover {
-  border: 1px solid red;
+  border: 2px solid red;
 }
 
 .buttons>.pen-size {

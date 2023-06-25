@@ -23,6 +23,7 @@ class DrawingLine extends PaintFunction {
     this.context.lineWidth = currentPenSize;
     // Drawing the line here
     this.context.beginPath();
+    dashedLine === true ? this.context.setLineDash(dashParameter) : this.context.setLineDash([])
     this.context.moveTo(coord[0], coord[1]);
   }
   // Clicking and removing your mouse

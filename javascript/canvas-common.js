@@ -11,6 +11,8 @@ let currentFunction;
 let dragging = false;
 let currentColor = "#000000";
 let currentPenSize;
+let dashParameter;
+let dashedLine = false
 let restoreArray = []; // save the history
 let index = -1;
 

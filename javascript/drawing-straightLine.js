@@ -15,6 +15,7 @@ class DrawingStraightLine extends PaintFunction {
   onDragging(coord) {
     this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height)
     this.contextDraft.beginPath()
+    dashedLine === true ? this.contextDraft.setLineDash(dashParameter) : this.contextDraft.setLineDash([])
     this.contextDraft.moveTo(this.origX, this.origY)
     this.contextDraft.lineTo(coord[0], coord[1])
     this.contextDraft.stroke()
@@ -23,6 +24,7 @@ class DrawingStraightLine extends PaintFunction {
   onMouseUp(coord) {
     this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height)
     this.contextReal.beginPath()
+    dashedLine === true ? this.contextReal.setLineDash(dashParameter) : this.contextReal.setLineDash([])
     this.contextReal.moveTo(this.origX, this.origY)
     this.contextReal.lineTo(coord[0], coord[1])
     this.contextReal.stroke()

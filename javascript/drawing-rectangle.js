@@ -18,6 +18,8 @@ class DrawingRectangle extends PaintFunction {
     this.origY = coord[1];
     this.contextDraft.fillStyle = currentColor;
     this.contextReal.fillStyle = currentColor;
+    dashedLine === true ? this.contextDraft.setLineDash(dashParameter) : this.contextDraft.setLineDash([])
+    dashedLine === true ? this.contextReal.setLineDash(dashParameter) : this.contextReal.setLineDash([])
   }
 
   onDragging(coord, event) {

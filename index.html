@@ -17,19 +17,21 @@
   <div class="container">
     <div class="buttons">
       <!-- The drawing rectangle button  -->
-      <span class="btn" id="drawing-rectangle">Rectangle</span>
+      <span class="btn button default" id="drawing-rectangle">Rectangle</span>
       <!-- The drawing line button  -->
-      <span class="btn" id="drawing-straightLine">Straight Line</span>
+      <span class="btn button" id="drawing-straightLine">Straight Line</span>
       <!-- The drawing straight line button  -->
-      <span class="btn" id="drawing-line">Line</span>
+      <span class="btn button" id="drawing-line">Line</span>
       <!-- The drawing curved line button  -->
-      <span class="btn" id="drawing-curvedLine">Curved Line</span>
+      <span class="btn button" id="drawing-curvedLine">Curved Line</span>
       <!-- The triangle line button -->
-      <span class="btn" id="drawing-triangle">Triangle</span>
+      <span class="btn button" id="drawing-triangle">Triangle</span>
       <!-- The circle button -->
-      <span class="btn" id="drawing-circle">Circle</span>
+      <span class="btn button" id="drawing-circle">Circle</span>
       <!-- The eraser button -->
       <span class="btn" id="eraser">Eraser</span>
+      <!-- The set dash line button -->
+      <span class="btn" id="dash">Dashed Line</span>
       <!-- The color board -->
       <div class="color-board">
         <span class="color" style="background: red;"></span>
@@ -82,6 +84,11 @@
     })
     $(() => {
       currentFunction = new DrawingLine(contextReal)
+      $(".button").click(function () {
+        $('.button').css('border', 'none')
+        $('#eraser').css('border', 'none')
+        $(this).css('border', `3px solid ${currentColor}`)
+      });
       $("#drawing-rectangle").click(() => {
         currentFunction = new DrawingRectangle(contextReal, contextDraft);
       });
@@ -101,11 +108,20 @@
         currentFunction = new DrawingCurvedLine(contextReal, contextDraft);
       })
       $('#eraser').click(() => {
+        $('.button').css('border', 'none')
+        $('#eraser').css('border', '3px solid black')
         currentFunction = new Eraser(contextReal);
       })
       $('.color-board').click(element => {
         currentColor = element.target.style.background
       });
+      $('#dash').click(() => {
+        dashParameter = [10, 10]
+        dashedLine === false ? dashedLine = true : dashedLine = false
+        dashedLine === false ? $('#dash').css('border', 'none') : $('#dash').css('border', `3px dashed black`)
+        $('#eraser').css('border', 'none')
+        console.log(dashedLine)
+      })
       $('#undo').click(() => {
         if (index <= 0) {
           index = -1 //should be index = -1 to stop it being decremented

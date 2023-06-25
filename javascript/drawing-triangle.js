@@ -29,6 +29,7 @@ class DrawingTriangle extends PaintFunction {
       canvasDraft.height
     );
     this.contextDraft.beginPath();
+    dashedLine === true ? this.contextDraft.setLineDash(dashParameter) : this.contextDraft.setLineDash([])
     this.contextDraft.moveTo(this.origX, this.origY)
     this.contextDraft.lineTo(coord[0], coord[1])
     this.contextDraft.lineTo(this.origX * 2 - coord[0], coord[1])
@@ -45,6 +46,7 @@ class DrawingTriangle extends PaintFunction {
       canvasDraft.height
     );
     this.contextReal.beginPath();
+    dashedLine === true ? this.contextReal.setLineDash(dashParameter) : this.contextReal.setLineDash([])
     this.contextReal.moveTo(this.origX, this.origY)
     this.contextReal.lineTo(coord[0], coord[1])
     this.contextReal.lineTo(this.origX * 2 - coord[0], coord[1])
