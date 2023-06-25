@@ -62,8 +62,6 @@ class DrawingCurvedLine extends PaintFunction {
         canvasDraft.width,
         canvasDraft.height
       );
-      this.contextReal.beginPath()
-      this.contextReal.moveTo(this.origX, this.origY)
       this.contextReal.quadraticCurveTo(this.cp1, this.cp2, this.ep1, this.ep2)
       this.contextReal.stroke()
       this.controlPoint = false

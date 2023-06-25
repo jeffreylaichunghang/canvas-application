@@ -17,13 +17,15 @@
   <div class="container">
     <div class="buttons">
       <!-- The drawing rectangle button  -->
-      <span class="btn" id="drawing-rectangle">Draw Rectangle</span>
+      <span class="btn" id="drawing-rectangle">Rectangle</span>
       <!-- The drawing line button  -->
-      <span class="btn" id="drawing-line">Draw Line</span>
+      <span class="btn" id="drawing-straightLine">Straight Line</span>
+      <!-- The drawing straight line button  -->
+      <span class="btn" id="drawing-line">Line</span>
       <!-- The drawing curved line button  -->
-      <span class="btn" id="drawing-curvedLine">Draw Curved Line</span>
+      <span class="btn" id="drawing-curvedLine">Curved Line</span>
       <!-- The triangle line button -->
-      <span class="btn" id="drawing-triangle">Draw Triangle</span>
+      <span class="btn" id="drawing-triangle">Triangle</span>
       <!-- The eraser button -->
       <span class="btn" id="eraser">Eraser</span>
       <!-- The color board -->
@@ -58,6 +60,8 @@
   <script src="./javascript/eraser.js" type="text/javascript"></script>
   <!-- The drawing line functionality  -->
   <script src="./javascript/drawing-line.js" type="text/javascript"></script>
+  <!-- The drawing straight line functionality  -->
+  <script src="./javascript/drawing-straightLine.js" type="text/javascript"></script>
   <!-- The drawing curved line functionality  -->
   <script src="./javascript/drawing-curvedLine.js" type="text/javascript"></script>
   <!-- The drawing rectangle functionality  -->
@@ -77,6 +81,9 @@
       $("#drawing-rectangle").click(() => {
         currentFunction = new DrawingRectangle(contextReal, contextDraft);
       });
+      $("#drawing-straightLine").click(() => {
+        currentFunction = new DrawingStraightLine(contextReal, contextDraft)
+      })
       $("#drawing-line").click(() => {
         currentFunction = new DrawingLine(contextReal);
       });
