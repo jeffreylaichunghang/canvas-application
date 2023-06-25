@@ -39,6 +39,8 @@ $("#canvas-draft").mouseup(function (e) {
   index += 1
   if (index < restoreArray.length) { restoreArray.length = index }
   restoreArray.push(contextReal.getImageData(0, 0, canvasReal.width, canvasReal.height))
+  console.log(index)
+  console.log(restoreArray)
 });
 
 $("#canvas-draft").mouseleave(function (e) {

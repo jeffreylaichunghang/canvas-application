@@ -26,8 +26,8 @@ class DrawingCurvedLine extends PaintFunction {
     );
     this.contextDraft.beginPath();
     this.contextDraft.moveTo(this.origX, this.origY);
-    this.contextReal.beginPath();
-    this.contextReal.moveTo(this.origX, this.origY);
+    //this.contextReal.beginPath();
+    //this.contextReal.moveTo(this.origX, this.origY);
     if (this.controlPoint === false) {
       console.log('dragging')
       this.dragging = true
@@ -60,6 +60,8 @@ class DrawingCurvedLine extends PaintFunction {
         canvasDraft.width,
         canvasDraft.height
       );
+      this.contextReal.beginPath();
+      this.contextReal.moveTo(this.origX, this.origY);
       this.contextReal.quadraticCurveTo(this.cp1, this.cp2, this.ep1, this.ep2)
       this.contextReal.stroke()
       this.controlPoint = false

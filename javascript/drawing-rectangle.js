@@ -16,11 +16,11 @@ class DrawingRectangle extends PaintFunction {
     currentColor === "#ffffff" ? this.contextDraft.strokeStyle = "#000000" : this.contextDraft.strokeStyle = "#ffffff"
     this.origX = coord[0];
     this.origY = coord[1];
+    this.contextDraft.fillStyle = currentColor;
+    this.contextReal.fillStyle = currentColor;
   }
 
   onDragging(coord, event) {
-    this.contextDraft.fillStyle = currentColor;
-    this.contextReal.fillStyle = currentColor;
     this.contextDraft.clearRect(
       0,
       0,
