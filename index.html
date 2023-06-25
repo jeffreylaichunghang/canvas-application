@@ -32,6 +32,8 @@
       <span class="btn" id="eraser">Eraser</span>
       <!-- The set dash line button -->
       <span class="btn" id="dash">Dashed Line</span>
+      <!-- The set fill color button -->
+      <span class="btn" id="fill-color">Fill Color</span>
       <!-- The color board -->
       <div class="color-board">
         <span class="color" style="background: red;"></span>
@@ -83,7 +85,7 @@
       canvasDraft.height = canvasDraft.offsetHeight
     })
     $(() => {
-      currentFunction = new DrawingLine(contextReal)
+      currentFunction = new DrawingRectangle(contextReal, contextDraft)
       $(".button").click(function () {
         $('.button').css('border', 'none')
         $('#eraser').css('border', 'none')
@@ -109,6 +111,7 @@
       })
       $('#eraser').click(() => {
         $('.button').css('border', 'none')
+        $('#fill-color').css('border', 'none')
         $('#eraser').css('border', '3px solid black')
         currentFunction = new Eraser(contextReal);
       })
@@ -120,7 +123,14 @@
         dashedLine === false ? dashedLine = true : dashedLine = false
         dashedLine === false ? $('#dash').css('border', 'none') : $('#dash').css('border', `3px dashed black`)
         $('#eraser').css('border', 'none')
+        $('#fill-color').css('border', 'none')
         console.log(dashedLine)
+      })
+      $("#fill-color").click(() => {
+        fillColor === false ? fillColor = true : fillColor = false
+        fillColor === false ? $("#fill-color").css('border', `none`) : $("#fill-color").css('border', `3px solid ${currentColor}`)
+        $('#eraser').css('border', 'none')
+        $('#dash').css('border', 'none')
       })
       $('#undo').click(() => {
         if (index <= 0) {

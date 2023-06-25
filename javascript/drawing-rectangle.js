@@ -13,11 +13,14 @@ class DrawingRectangle extends PaintFunction {
   }
 
   onMouseDown(coord, event) {
-    currentColor === "#ffffff" ? this.contextDraft.strokeStyle = "#000000" : this.contextDraft.strokeStyle = "#ffffff"
+    fillColor === false ? this.contextDraft.strokeStyle = currentColor : this.contextDraft.fillStyle = currentColor
+    fillColor === false ? this.contextReal.strokeStyle = currentColor : this.contextReal.fillStyle = currentColor
     this.origX = coord[0];
     this.origY = coord[1];
     this.contextDraft.fillStyle = currentColor;
     this.contextReal.fillStyle = currentColor;
+    this.contextDraft.lineWidth = currentPenSize;
+    this.contextReal.lineWidth = currentPenSize;
     dashedLine === true ? this.contextDraft.setLineDash(dashParameter) : this.contextDraft.setLineDash([])
     dashedLine === true ? this.contextReal.setLineDash(dashParameter) : this.contextReal.setLineDash([])
   }
@@ -29,14 +32,15 @@ class DrawingRectangle extends PaintFunction {
       canvasDraft.width,
       canvasDraft.height
     );
-    this.contextDraft.fillRect(
-      this.origX,
-      this.origY,
-      coord[0] - this.origX,
-      coord[1] - this.origY
-    );
-    if (currentColor === "#ffffff") {
+    if (fillColor === false) {
       this.contextDraft.strokeRect(
+        this.origX,
+        this.origY,
+        coord[0] - this.origX,
+        coord[1] - this.origY
+      );
+    } else {
+      this.contextDraft.fillRect(
         this.origX,
         this.origY,
         coord[0] - this.origX,
@@ -58,15 +62,16 @@ class DrawingRectangle extends PaintFunction {
     );
     // Commit that drawing to context real
     // Without this commit, it won't actually draw
-    this.contextReal.fillRect(
-      this.origX,
-      this.origY,
-      coord[0] - this.origX,
-      coord[1] - this.origY
-    );
 
-    if (currentColor === "#ffffff") {
+    if (fillColor === false) {
       this.contextReal.strokeRect(
+        this.origX,
+        this.origY,
+        coord[0] - this.origX,
+        coord[1] - this.origY
+      );
+    } else {
+      this.contextReal.fillRect(
         this.origX,
         this.origY,
         coord[0] - this.origX,

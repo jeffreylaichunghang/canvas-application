@@ -10,15 +10,15 @@ class DrawingTriangle extends PaintFunction {
     this.origY = coord[1];
     this.contextDraft.fillStyle = currentColor
     this.contextReal.fillStyle = currentColor
-    this.contextDraft.lineWidth = 1;
-    this.contextReal.lineWidth = 1;
+    this.contextDraft.lineWidth = currentPenSize
+    this.contextReal.lineWidth = currentPenSize
 
-    if (currentColor === "#ffffff") {
-      this.contextReal.strokeStyle = "#000000"
-      this.contextDraft.strokeStyle = "#000000"
+    if (fillColor === false) {
+      this.contextReal.strokeStyle = currentColor
+      this.contextDraft.strokeStyle = currentColor
     } else {
-      this.contextReal.strokeStyle = "#ffffff"
-      this.contextDraft.strokeStyle = "#ffffff"
+      this.contextReal.fillStyle = currentColor
+      this.contextDraft.fillStyle = currentColor
     }
   }
   onDragging(coord, event) {
@@ -34,8 +34,7 @@ class DrawingTriangle extends PaintFunction {
     this.contextDraft.lineTo(coord[0], coord[1])
     this.contextDraft.lineTo(this.origX * 2 - coord[0], coord[1])
     this.contextDraft.closePath()
-    this.contextDraft.fill()
-    this.contextDraft.stroke()
+    fillColor === false ? this.contextDraft.stroke() : this.contextDraft.fill();
   }
   onMouseMove() { }
   onMouseUp(coord, event) {
@@ -51,8 +50,7 @@ class DrawingTriangle extends PaintFunction {
     this.contextReal.lineTo(coord[0], coord[1])
     this.contextReal.lineTo(this.origX * 2 - coord[0], coord[1])
     this.contextReal.closePath()
-    this.contextReal.fill()
-    this.contextReal.stroke()
+    fillColor === false ? this.contextReal.stroke() : this.contextReal.fill();
   }
   onMouseLeave() { }
   onMouseEnter() { }

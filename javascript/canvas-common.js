@@ -10,6 +10,7 @@ let contextDraft = canvasDraft.getContext("2d");
 let currentFunction;
 let dragging = false;
 let currentColor = "#000000";
+let fillColor = false
 let currentPenSize;
 let dashParameter;
 let dashedLine = false
