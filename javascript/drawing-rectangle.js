@@ -19,17 +19,14 @@ class DrawingRectangle extends PaintFunction {
   }
 
   onDragging(coord, event) {
-    // Manipulating the context draft
     this.contextDraft.fillStyle = currentColor;
     this.contextReal.fillStyle = currentColor;
-    // Allows you to actually draw out your squares
     this.contextDraft.clearRect(
       0,
       0,
       canvasDraft.width,
       canvasDraft.height
     );
-    // Pass in the original x and y coordinates, followed by the new coordinates that we get for position x and y
     this.contextDraft.fillRect(
       this.origX,
       this.origY,
@@ -44,7 +41,6 @@ class DrawingRectangle extends PaintFunction {
         coord[1] - this.origY
       );
     }
-
   }
 
   onMouseMove() { }

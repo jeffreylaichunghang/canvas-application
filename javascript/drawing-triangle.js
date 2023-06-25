@@ -12,7 +12,7 @@ class DrawingTriangle extends PaintFunction {
     this.contextReal.fillStyle = currentColor
     this.contextDraft.lineWidth = 1;
     this.contextReal.lineWidth = 1;
-    console.log(currentColor)
+
     if (currentColor === "#ffffff") {
       this.contextReal.strokeStyle = "#000000"
       this.contextDraft.strokeStyle = "#000000"

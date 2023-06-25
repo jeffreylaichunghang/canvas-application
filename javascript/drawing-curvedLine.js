@@ -16,7 +16,6 @@ class DrawingCurvedLine extends PaintFunction {
     this.contextReal.strokeStyle = currentColor
     this.contextDraft.lineWidth = currentPenSize;
     this.contextReal.lineWidth = currentPenSize;
-    console.log('mousedown')
   }
   onDragging(coord, event) {
     this.contextDraft.clearRect(
@@ -54,7 +53,6 @@ class DrawingCurvedLine extends PaintFunction {
       this.ep2 = coord[1]
       this.cp1 = Math.abs((coord[0] - this.origX) / 2)
       this.cp2 = Math.abs((coord[1] - this.origY) / 2)
-      console.log('mouseup')
     } else {
       this.contextDraft.clearRect(
         0,

@@ -26,6 +26,8 @@
       <span class="btn" id="drawing-curvedLine">Curved Line</span>
       <!-- The triangle line button -->
       <span class="btn" id="drawing-triangle">Triangle</span>
+      <!-- The circle button -->
+      <span class="btn" id="drawing-circle">Circle</span>
       <!-- The eraser button -->
       <span class="btn" id="eraser">Eraser</span>
       <!-- The color board -->
@@ -68,6 +70,8 @@
   <script src="./javascript/drawing-rectangle.js" type="text/javascript"></script>
   <!-- The drawing triangle functionality  -->
   <script src="./javascript/drawing-triangle.js" type="text/javascript"></script>
+  <!-- The drawing circle functionality  -->
+  <script src="./javascript/drawing-circle.js" type="text/javascript"></script>
 
   <script type="text/javascript">
     window.addEventListener('load', () => {
@@ -81,8 +85,11 @@
       $("#drawing-rectangle").click(() => {
         currentFunction = new DrawingRectangle(contextReal, contextDraft);
       });
+      $("#drawing-circle").click(() => {
+        currentFunction = new DrawingCircle(contextDraft, contextReal);
+      })
       $("#drawing-straightLine").click(() => {
-        currentFunction = new DrawingStraightLine(contextReal, contextDraft)
+        currentFunction = new DrawingStraightLine(contextReal, contextDraft);;
       })
       $("#drawing-line").click(() => {
         currentFunction = new DrawingLine(contextReal);
@@ -91,10 +98,10 @@
         currentFunction = new DrawingTriangle(contextReal, contextDraft);
       });
       $('#drawing-curvedLine').click(() => {
-        currentFunction = new DrawingCurvedLine(contextReal, contextDraft)
+        currentFunction = new DrawingCurvedLine(contextReal, contextDraft);
       })
       $('#eraser').click(() => {
-        currentFunction = new Eraser(contextReal)
+        currentFunction = new Eraser(contextReal);
       })
       $('.color-board').click(element => {
         currentColor = element.target.style.background
