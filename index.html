@@ -48,9 +48,12 @@
       <div class="pen-size">
         <input oninput="currentPenSize = this.value" id="pen-size" type="range" min="1" max="100">
       </div>
-      <!-- The undo button  -->
+      <!-- The undo, redo, clear button  -->
       <span class="btn" id="undo">Undo</span>
       <span class="btn" id="redo">Redo</span>
+      <span class="btn" id="clear">Clear</span>
+      <!-- The download button  -->
+      <span class="btn" id="download">Download</span>
     </div>
     <div id="canvas-container">
       <canvas id="canvas-real" class="canvas"></canvas>
@@ -78,11 +81,18 @@
   <script src="./javascript/drawing-circle.js" type="text/javascript"></script>
 
   <script type="text/javascript">
+    function setCanvasBackground() {
+      //set the background of the downloaded image
+      contextReal.fillStyle = "#ffffff"
+      contextReal.fillRect(0, 0, canvasReal.width, canvasReal.height)
+      contextReal.fillStyle = currentColor
+    }
     window.addEventListener('load', () => {
       canvasReal.width = canvasReal.offsetWidth
       canvasReal.height = canvasReal.offsetHeight
       canvasDraft.width = canvasDraft.offsetWidth
       canvasDraft.height = canvasDraft.offsetHeight
+      setCanvasBackground()
     })
     $(() => {
       currentFunction = new DrawingRectangle(contextReal, contextDraft)
@@ -154,6 +164,19 @@
           index += 1
           contextReal.putImageData(restoreArray[index], 0, 0)
         }
+      })
+      $('#clear').click(() => {
+        contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height);
+        restoreArray = [];
+        index = -1;
+      })
+      $('#download').click(() => {
+        console.log(canvasReal.toDataURL());
+        const link = document.createElement('a');
+        link.download = 'download.png';
+        link.href = canvasReal.toDataURL();
+        link.click();
+        link.delete;
       })
     })
   </script>
