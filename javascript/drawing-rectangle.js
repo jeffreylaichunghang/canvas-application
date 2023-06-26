@@ -1,10 +1,3 @@
-/**********************************************
- * Drawing Rectangle Functionality
- * ==================================
- * This class extends the PaintFunction class, which you can find in canvas-common
- ***********************************************/
-// https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/clearRect
-
 class DrawingRectangle extends PaintFunction {
   constructor(contextReal, contextDraft) {
     super();
@@ -13,8 +6,6 @@ class DrawingRectangle extends PaintFunction {
   }
 
   onMouseDown(coord, event) {
-    fillColor === false ? this.contextDraft.strokeStyle = currentColor : this.contextDraft.fillStyle = currentColor
-    fillColor === false ? this.contextReal.strokeStyle = currentColor : this.contextReal.fillStyle = currentColor
     this.origX = coord[0];
     this.origY = coord[1];
     this.contextDraft.fillStyle = currentColor;
@@ -23,6 +14,8 @@ class DrawingRectangle extends PaintFunction {
     this.contextReal.lineWidth = currentPenSize;
     dashedLine === true ? this.contextDraft.setLineDash(dashParameter) : this.contextDraft.setLineDash([])
     dashedLine === true ? this.contextReal.setLineDash(dashParameter) : this.contextReal.setLineDash([])
+    fillColor === false ? this.contextDraft.strokeStyle = currentColor : this.contextDraft.fillStyle = currentColor
+    fillColor === false ? this.contextReal.strokeStyle = currentColor : this.contextReal.fillStyle = currentColor
   }
 
   onDragging(coord, event) {
@@ -51,17 +44,14 @@ class DrawingRectangle extends PaintFunction {
 
   onMouseMove() { }
 
-  // Committing the element to the canvas
+
   onMouseUp(coord) {
-    // Clearing the rectangle first
     this.contextDraft.clearRect(
       0,
       0,
       canvasDraft.width,
       canvasDraft.height
     );
-    // Commit that drawing to context real
-    // Without this commit, it won't actually draw
 
     if (fillColor === false) {
       this.contextReal.strokeRect(

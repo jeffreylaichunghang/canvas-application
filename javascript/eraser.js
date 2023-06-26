@@ -9,7 +9,7 @@ class Eraser extends PaintFunction {
     this.context.strokeStyle = "#fff";
     this.context.lineJoin = "round";
     this.context.lineWidth = currentPenSize;
-
+    this.context.setLineDash([])
     this.context.beginPath();
     this.context.moveTo(coord[0], coord[1]);
   }

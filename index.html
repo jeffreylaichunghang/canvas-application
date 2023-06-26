@@ -109,15 +109,21 @@
       })
       $("#drawing-straightLine").click(() => {
         currentFunction = new DrawingStraightLine(contextReal, contextDraft);;
+        $('#fill-color').css('border', 'none')
+        fillColor = false
       })
       $("#drawing-line").click(() => {
         currentFunction = new DrawingLine(contextReal);
+        $('#fill-color').css('border', 'none')
+        fillColor = false
       });
       $("#drawing-triangle").click(() => {
         currentFunction = new DrawingTriangle(contextReal, contextDraft);
       });
       $('#drawing-curvedLine').click(() => {
         currentFunction = new DrawingCurvedLine(contextReal, contextDraft);
+        $('#fill-color').css('border', 'none')
+        fillColor = false
       })
       $('#eraser').click(() => {
         $('.button').css('border', 'none')

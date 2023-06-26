@@ -32,7 +32,6 @@ class DrawingCurvedLine extends PaintFunction {
       this.dragging = true
       this.contextDraft.lineTo(coord[0], coord[1])
       this.contextDraft.stroke()
-      // works
     } else {
       this.cp1 = coord[0]
       this.cp2 = coord[1]
