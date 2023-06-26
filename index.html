@@ -112,6 +112,8 @@
       $('#eraser').click(() => {
         $('.button').css('border', 'none')
         $('#fill-color').css('border', 'none')
+        $('#dash').css('border', 'none')
+        dashedLine = false
         $('#eraser').css('border', '3px solid black')
         currentFunction = new Eraser(contextReal);
       })
@@ -120,10 +122,12 @@
       });
       $('#dash').click(() => {
         dashParameter = [10, 10]
+
         dashedLine === false ? dashedLine = true : dashedLine = false
         dashedLine === false ? $('#dash').css('border', 'none') : $('#dash').css('border', `3px dashed black`)
         $('#eraser').css('border', 'none')
         $('#fill-color').css('border', 'none')
+        fillColor = false
         console.log(dashedLine)
       })
       $("#fill-color").click(() => {
@@ -131,6 +135,7 @@
         fillColor === false ? $("#fill-color").css('border', `none`) : $("#fill-color").css('border', `3px solid ${currentColor}`)
         $('#eraser').css('border', 'none')
         $('#dash').css('border', 'none')
+        dashedLine = false
       })
       $('#undo').click(() => {
         if (index <= 0) {
